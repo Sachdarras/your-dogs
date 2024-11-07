@@ -1,0 +1,78 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                Int           @id @default(autoincrement())
+  nom               String
+  prenom            String
+  email             String        @unique
+  password          String
+  nomSociete        String?
+  categorieProId    Int?
+  descriptionPro    String?
+  descriptionChien  String?
+  image             String?
+  roleId            Int
+
+  categoriePro      categoriePro? @relation(fields: [categorieProId], references: [id]) // Remplacé TypeOfPro par categoriePro
+  role              Role?         @relation(fields: [roleId], references: [id])
+  promenades        Promenade[]   @relation("UserPromenades")
+  dogFriendlyPlaces DogFriendly[] @relation("UserDogFriendlyPlaces")
+}
+
+model categoriePro { // Remplacé TypeOfPro par categoriePro
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  users User[] // Relation avec User
+}
+
+model Role {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  users User[] // Relation avec User
+}
+
+model DogFriendly {
+  id          Int           @id @default(autoincrement())
+  name        String
+  adresse     String
+  codePostale Int 
+  ville       String
+  categorieId Int?
+  image       String?
+
+  categorie   CategorieDogFriendly? @relation(fields: [categorieId], references: [id])
+  users       User[]                @relation("UserDogFriendlyPlaces")
+}
+
+model CategorieDogFriendly {
+  id          Int           @id @default(autoincrement())
+  name        String        @unique
+  dogFriendly DogFriendly[] // Relation avec DogFriendly
+}
+
+model Promenade {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String
+  image       String?
+  adresse     String?
+  codePostale Int?
+  latitude    Float?
+  longitude   Float?
+
+  users User[] @relation("UserPromenades")
+}
+
+model SportCanin {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  image       String?
+}
