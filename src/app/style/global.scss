@@ -1,0 +1,27 @@
+
+@use "./home.scss";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Réinitialiser les marges et les paddings par défaut */
+
+/* Définir les styles globaux */
+body {
+
+  background-color: #f4f4f4; /* Couleur de fond claire */
+  color: #333; /* Couleur du texte par défaut */
+  font-size: 16px; /* Taille de police de base */
+  line-height: 1.6; /* Espacement des lignes */
+  overflow-x: hidden; /* Éviter le défilement horizontal */
+}
+
+/* Style des liens (sans soulignement et couleur par défaut) */
+
+/* Style de base pour les images */
+img {
+  max-width: 100%;
+  height: auto;
+}

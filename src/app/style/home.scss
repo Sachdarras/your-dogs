@@ -1,0 +1,52 @@
+.home-container {
+  display: flex;
+  top:60%;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; /* Espacement interne autour du conteneur */
+  margin-top: 8vh;
+  background-color: #f9f9f9; /* Fond légèrement gris */
+}
+
+.projet-container {
+  max-width: 800px; /* Limite la largeur du texte */
+  width: 100%;
+  padding: 2rem;
+  background-color: #fff; /* Fond blanc pour l'article */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce autour de l'article */
+  border-radius: 10px; /* Coins arrondis */
+  line-height: 1.6;
+}
+
+.projet-container h2 {
+  font-size: 2.5rem; /* Taille de titre principale */
+  color: #333; /* Couleur sombre pour le titre */
+  margin-bottom: 1.5rem; /* Espace sous le titre */
+}
+
+.projet-container p {
+  font-size: 1.1rem;
+  color: #555; /* Couleur gris foncé pour le texte */
+  margin-bottom: 1.5rem; /* Espacement entre les paragraphes */
+}
+
+.projet-container ul {
+  margin-left: 1.5rem;
+  list-style-type: disc; /* Liste à puces */
+}
+
+.projet-container ul li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem; /* Espacement entre les éléments de liste */
+}
+
+.projet-container ul li::before {
+  content: "✔️ "; /* Emoji comme puce */
+  color: #ffbf00; /* Couleur dorée pour les puces */
+  font-size: 1.2rem;
+}
+
+.projet-container p:last-child {
+  margin-bottom: 0; /* Enlever le margin-bottom du dernier paragraphe */
+}

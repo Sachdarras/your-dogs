@@ -1,0 +1,63 @@
+@use "./variable.scss";
+@font-face {
+  font-family: "Lemon-Milk";
+  src: url(../../../public/Font/lemon_milk/LEMONMILK-Regular.otf);
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(../../../public/Font/roboto/Roboto-Black.ttf);
+}
+
+$color-gold: #ffbf00;
+$color-white: white;
+$font-LM: "Lemon-Milk";
+$font-roboto: "Roboto";
+$text-entourage-black: 2px 2px 2px black;
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.3); /* Fond semi-transparent pour la navbar */
+  padding: 15px 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); /* Léger box-shadow pour la navbar */
+  position: absolute;
+  top: 68%;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Liste des éléments de la navbar */
+.navbarList {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Élément de la navbar */
+.navbarItem {
+  font-family: $font-LM;
+  text-shadow: $text-entourage-black;
+}
+
+/* Liens de la navbar */
+.navbarLink {
+  color: gold; 
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  
+  /* Effet au survol */
+  &:hover {
+    background-color: rgba(255, 191, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(255, 191, 0, 0.3)
+  }
+
+  /* Effet d'ombre douce autour des liens */
+  &:active {
+    transform: scale(0.98);
+  }
+}
